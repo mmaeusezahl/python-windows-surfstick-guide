@@ -14,6 +14,8 @@ together with some starting point information in the ubuntuusers forum.
 Possible applications (partially beyond the scope of this guide) include:
 * Sending and receiving SMS with a Huawei surfstick
 * Modeswitching the surfstick under Windows
+* Modeswitching the surfstick under Linux or MacOS without the usb-modeswitch
+software
 * Doing other things a surf stick can do (e.g. phone calls, reading SIM contacts
 using the surfstick)
 * ... ?
@@ -108,6 +110,8 @@ It is rather simple to trigger a mode-switch on Windows using Python. This
 their proposed solution. The main issue there was, that they forgot to
 hex-decode the message before sending it to the surfstick.
 
+### Installing a driver
+
 First you'll have to replace the default drive with a libusb compatible driver
 such that PyUSB can send messages to the surfstick. For this I'd recommend using
 the tool Zadig. Once downloaded you'll have to select 
@@ -119,12 +123,40 @@ uninstall and replcace the driver for a different device!** Then select
 
 ![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/zadig.PNG?raw=true)
 
-To use the script you'll have to install [PyUSB][10] which is a frontend to the
-various libusb clones.
+### Running the script
+
+To use the python script you'll have to install [PyUSB][10] which is a frontend
+to the various libusb clones (like libusb-win32 we just installed).
 
 ```
 pip install pyusb
 ```
+
+The you can run
+
+```
+python modeswitch.py
+```
+
+and your surfstick should finally be in modem-mode! Please note that the vid and
+pid are hard-coded into this script, but it should be easy enough to adapt for 
+your needs.
+
+### Thougts about the "magic" messages
+
+I have no idea why, but my surfstick will end up in different states depending
+on the magic message. Some examples
+
+| message                                                        | result    | mode   |
+|----------------------------------------------------------------|-----------|--------|
+| 55534243123456780000000000000011062000000100000000000000000000 | 12d1:1001 | modem |
+| 55534243123456780000000000000a11062000000000000100000000000000 | 12d1:14dc | HiLink  |
+
+Note that neither of those examples end up with a product ID actually associated
+to my particular stick. You are essentially looking for a combination that will
+end up in a state for that you can find a Windows driver (see next section).
+In my case (using a E3135 surfstick) the device ends up as a 12d1:1001
+"Huawei Technologies Co., Ltd. E161/E169/E620/E800 HSDPA Modem"...
 
 ## Final thoughs
 

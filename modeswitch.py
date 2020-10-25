@@ -10,6 +10,7 @@ import usb.util
 # edit these according to the device manager
 vid = 0x12d1
 pid = 0x1f01
+message = '55534243123456780000000000000a11062000000000000100000000000000'
 
 # find our device
 dev = usb.core.find(idVendor=vid, idProduct=pid)
@@ -42,6 +43,5 @@ ep = usb.util.find_descriptor(
 assert ep is not None
 
 # write the data
-message = '55534243123456780000000000000a11062000000000000100000000000000'
 bytes_message = bytes.fromhex(message)
 ep.write(bytes_message)
