@@ -145,7 +145,7 @@ your needs.
 ### Thougts about the "magic" messages
 
 I have no idea why, but my surfstick will end up in different states depending
-on the magic message. Some examples
+on the magic message. Some examples using a E3135 surfstick:
 
 | message                                                        | result    | mode   |
 |----------------------------------------------------------------|-----------|--------|
@@ -155,10 +155,17 @@ on the magic message. Some examples
 Note that neither of those examples end up with a product ID actually associated
 to my particular stick. You are essentially looking for a combination that will
 end up in a state for that you can find a Windows driver (see next section).
-In my case (using a E3135 surfstick) the device ends up as a 12d1:1001
+In my case the device ends up as a 12d1:1001
 "Huawei Technologies Co., Ltd. E161/E169/E620/E800 HSDPA Modem"...
 
+## Loading the correct driver
+
 ## Final thoughs
+
+After you have set the drivers once, Windows will remember them. You are going 
+to have to do the modeswitching whenever the surfstick is reset. So you might
+considering writing a script for doing so in the style of the usb-modeswitch
+udev rule for Linux (or even using the Huawei pplication directly).
 
 If someone ever feels like porting the "Option" Linux driver to Windows it
 would make the whole thing using FOSS. On the other hand, why not use Linux in
