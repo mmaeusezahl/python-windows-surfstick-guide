@@ -39,14 +39,35 @@ From the perspective of the device manager this device looks like this:
 Notice the identifying parameters (so to say the fingerprint) of this device to
 the system. A "vendor ID" (called VID) unique to Huawei and a "product ID" 
 (called PID) unique to this particular srufstick (a E3135). As a side note: 
-These are the values that the operating system uses to determine which drivers to load when inserting the device.
+These are the values that the operating system uses to determine which drivers 
+to load when inserting the device. You can see that in my case the combination
+12d1:1f01 (as written in linux terms vid:pid) matches [this list][1].
 2. The user runs the `AutoRun.exe` and two things get installed:
    1. A tool called `mbbService`, which will look for the mass-storage device by
    means of its vid and pid
    2. The driver for the "high-speed" mode
 3. Now a bit of magic happens. The freshly installed `mbbService` will identify
 the attached surfstick in "mass-storage" mode. It will the send a "magic"
-message to the surfstick which will immediately trigger 
+message to the surfstick which will immediately trigger a so called mode-switch
+in the surfstick. It will briefly reset the connection and the reappear as a new
+kind of device to the operation system. This happens very quickly, but sometimes
+the user can quickly see the fake "CD" appearing before the actual surfstick
+loads. Since the `mbbService` places itself in autostart, this will also happen
+after the system is restarted or the surfstick is reinserted.
+4. From the perspective of the device manager, the device now has a new ID (in
+my case 12d1:14dc). It therefore loads the actual driver for the "high-speed"
+mode and a webpage will open, querying the user to connect, provied a PIN etc.
+
+This works well for actually connecting to the internet, but sometimes it is not
+desired to have a fully fledged high-speed connection. In my case, I just wanted
+to send SMS using a python script. It seems possible to directly talk to the
+HTML pages in the background, but this appeared rather complicated to me. (There
+seems to be a project which does exactly this though 
+[huawei-modem-python-api-client][3])
+
+It is however well known, that there is the other "modem mode" which provides an
+easy to use interface for sending SMS. There are also some python libraries
+which directly target this mode (see python-gsmmodem-new and )
 
 ## Some hints and troubleshooting
 
@@ -89,6 +110,8 @@ page.
 
 1. [https://wiki.ubuntuusers.de/USB_ModeSwitch/][1]
 2. [https://en.wikipedia.org/wiki/Hayes_command_set][2]
+3. [https://github.com/pablo/huawei-modem-python-api-client][3]
 
 [1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
 [2]: https://en.wikipedia.org/wiki/Hayes_command_set
+[3]: https://github.com/pablo/huawei-modem-python-api-client
