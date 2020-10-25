@@ -7,8 +7,13 @@
 import usb.core
 import usb.util
 
+# edit these according to the device manager
+vid = 0x12d1
+pid = 0x1f01
+
 # find our device
-dev = usb.core.find(idVendor=0x12d1, idProduct=0x1f01)
+dev = usb.core.find(idVendor=vid, idProduct=pid)
+usb.core.show_devices()
 
 # was it found?
 if dev is None:
@@ -24,8 +29,6 @@ interface_number = cfg[(0,0)].bInterfaceNumber
 intf = usb.util.find_descriptor(
     cfg, bInterfaceNumber = interface_number,
 )
-
-print(dev.manufacturer)
 
 ep = usb.util.find_descriptor(
     intf,

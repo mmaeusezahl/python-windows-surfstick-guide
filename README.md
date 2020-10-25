@@ -108,9 +108,19 @@ It is rather simple to trigger a mode-switch on Windows using Python. This
 their proposed solution. The main issue there was, that they forgot to
 hex-decode the message before sending it to the surfstick.
 
-First you need to make 
+First you'll have to replace the default drive with a libusb compatible driver
+such that PyUSB can send messages to the surfstick. For this I'd recommend using
+the tool Zadig. Once downloaded you'll have to select 
+"Options"->"List All Devices" and then find your surfstick from the list. This 
+can be identified by the USB ID which matches the vendor and product id 
+discussed earlier. **Be extra sure about this or you might unintentionally
+uninstall and replcace the driver for a different device!** Then select 
+`libusb-win32` from the list of options and click install
 
-To use the script you'll have to install [PyUSB][10]
+![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/zadig.PNG?raw=true)
+
+To use the script you'll have to install [PyUSB][10] which is a frontend to the
+various libusb clones.
 
 ```
 pip install pyusb
@@ -176,6 +186,7 @@ page.
 9. [https://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?f=3&t=1938&view=next][9]
 10. [https://github.com/pyusb/pyusb][10]
 11. [https://github.com/pyserial/pyserial][11]
+12. [https://zadig.akeo.ie/][12]
 
 [1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
 [2]: https://en.wikipedia.org/wiki/Hayes_command_set
@@ -188,3 +199,4 @@ page.
 [9]: https://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?f=3&t=1938&view=next
 [10]: https://github.com/pyusb/pyusb
 [11]: https://github.com/pyserial/pyserial
+[12]: https://zadig.akeo.ie/
