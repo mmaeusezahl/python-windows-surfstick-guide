@@ -121,7 +121,7 @@ discussed earlier. **Be extra sure about this or you might unintentionally
 uninstall and replcace the driver for a different device!** Then select 
 `libusb-win32` from the list of options and click install
 
-![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/zadig.PNG?raw=true)
+![Screenshot of Zadig shwoing the correct settings](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/zadig.PNG?raw=true)
 
 ### Running the script
 
@@ -187,7 +187,7 @@ seems to be an installer, which I did not use.
 The final state according to the device manager can be seen in the following
 screenshot:
 
-![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/final-state-device-manager.PNG?raw=true)
+![Screenshot of the Device Manager after sucessfully installing the driver](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/final-state-device-manager.PNG?raw=true)
 
 You can see that three "composite devices" have been correctly installed. One is
 a modem and two are serial interface we are going to use in the next stept to 
