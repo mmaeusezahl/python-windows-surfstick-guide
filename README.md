@@ -7,7 +7,7 @@ python script under Windows. There are quite some tutorials out there for
 Linux and MacOS but nothing that worked for my specific circumstances.
 
 This guide was written for a E3135 surfstick by Huawei. I believe that the
-information probided here might help for other similar surfsticks as well.
+information provided here might help for other similar surfsticks as well.
 There is quite a good list of similar devices in the [USB ModeSwitch article][1]
 together with some starting point information in the ubuntuusers forum.
 
