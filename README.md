@@ -21,5 +21,9 @@ using the surfstick
 ## Background
 
 ## References
+This is simply a collection of all references for better display on the GITHub
+page.
 
-[1]:https://wiki.ubuntuusers.de/USB_ModeSwitch/
+1. [https://wiki.ubuntuusers.de/USB_ModeSwitch/][1]
+
+[1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
