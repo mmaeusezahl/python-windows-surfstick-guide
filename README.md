@@ -138,9 +138,9 @@ The you can run
 python modeswitch.py
 ```
 
-and your surfstick should finally be in modem-mode! Please note that the vid and
-pid are hard-coded into this script, but it should be easy enough to adapt for 
-your needs.
+and your surfstick should finally be in modem-mode! Please note that the 
+message, vid and pid are hard-coded into this script, but it should be easy
+enough to adapt for your needs.
 
 ### Thougts about the "magic" messages
 
@@ -159,6 +159,51 @@ In my case the device ends up as a 12d1:1001
 "Huawei Technologies Co., Ltd. E161/E169/E620/E800 HSDPA Modem"...
 
 ## Loading the correct driver
+
+The current state is:
+TODO
+
+### Downloading the driver
+
+The trick is to install a driver from the [UTPSMobile Partner][13] software. 
+Look  for the "HUAWEI Stick UTPS-V200R003B015D16SP02C983( for win10)" file on 
+the Huawei Download page or through the page search ([direct link][14]). After 
+downloading **unpack**  the `*.rar` file, then unpack the `*.zip` file inside.
+
+Inside the zip file you'll find a `Setup.exe` and a `data.bin`. **Don't install
+it unless you really want the UTPS software** which you shouldn't because it has a security problem)!
+
+Now extract the `data.bin` and find the 
+
+```
+common\Driver
+```
+
+directory. This finally contains the driver files we are looking for. There also
+seems to be an installer, which I did not use.
+
+### Using the driver
+
+The final state according to the device manager can be seen in the following
+screenshot:
+
+![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/final-state-device-manager.PNG?raw=true)
+
+You can see that three "composite devices" have been correctly installed. One is
+a modem and two are serial interface we are going to use in the next stept to 
+send SMS etc.
+
+### SHA256 checksums
+
+| Filename                                                  | SHA256                                                           |
+|-----------------------------------------------------------|------------------------------------------------------------------|
+| HUAWEI Stick UTPS-V200R003B015D16SP02C983( for win10).rar | E00E6FFE488AC21B53AAED6D2C6AB0EC07D3E7F2CD844BE9CADC8F5EFF246238 |
+| HUAWEI Stick UTPS-V200R003B015D16SP02C983( for win10).zip | 93ED95B2A8D734AA217CA333C91E202667B9D869DC1AC4EEA87CC76C8EC1AE4B |
+| data.bin                                                  | 16541E0AD7AE64BC87B6FE18BD7DE1FBA4000AA1B5E3F3B9133DEA74896DD2EB |
+
+## Sending and receiving SMS
+
+TODO
 
 ## Final thoughs
 
@@ -226,6 +271,8 @@ page.
 10. [https://github.com/pyusb/pyusb][10]
 11. [https://github.com/pyserial/pyserial][11]
 12. [https://zadig.akeo.ie/][12]
+13. [https://consumer.huawei.com/de/search/?keyword=mobile%20partner&tag=support][13]
+14. [https://consumer-tkb.huawei.com/weknow/servlet/download/public?contextNo=S1600345804&view=true][14]
 
 [1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
 [2]: https://en.wikipedia.org/wiki/Hayes_command_set
@@ -239,3 +286,5 @@ page.
 [10]: https://github.com/pyusb/pyusb
 [11]: https://github.com/pyserial/pyserial
 [12]: https://zadig.akeo.ie/
+[13]: https://consumer.huawei.com/de/search/?keyword=mobile%20partner&tag=support
+[14]: https://consumer-tkb.huawei.com/weknow/servlet/download/public?contextNo=S1600345804&view=true
