@@ -97,6 +97,7 @@ is to send a "magic" message like
 ```
 55534243123456780000000000000011062000000100000000000000000000
 ```
+
 encoded in hexadecimal to the USB mass-storage device to trigger the modeswitch.
 These messages have been reverse engineered by the Linux community. The main
 resource for this is the `usb-modeswitch` [software along its forum][8]. There
@@ -107,7 +108,13 @@ It is rather simple to trigger a mode-switch on Windows using Python. This
 their proposed solution. The main issue there was, that they forgot to
 hex-decode the message before sending it to the surfstick.
 
+First you need to make 
 
+To use the script you'll have to install [PyUSB][10]
+
+```
+pip install pyusb
+```
 
 ## Final thoughs
 
@@ -167,6 +174,8 @@ page.
 7. [https://www.instructables.com/Giving-the-Raspberry-Pi-a-Serial-Modem-Using-the-H/][7]
 8. [https://www.draisberghof.de/usb_modeswitch/][8]
 9. [https://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?f=3&t=1938&view=next][9]
+10. [https://github.com/pyusb/pyusb][10]
+11. [https://github.com/pyserial/pyserial][11]
 
 [1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
 [2]: https://en.wikipedia.org/wiki/Hayes_command_set
@@ -177,3 +186,5 @@ page.
 [7]: https://www.instructables.com/Giving-the-Raspberry-Pi-a-Serial-Modem-Using-the-H/
 [8]: https://www.draisberghof.de/usb_modeswitch/
 [9]: https://www.draisberghof.de/usb_modeswitch/bb/viewtopic.php?f=3&t=1938&view=next
+[10]: https://github.com/pyusb/pyusb
+[11]: https://github.com/pyserial/pyserial
