@@ -29,6 +29,18 @@ gets powered
 * A "modem"  mode with support for traditional modem commands (also known as 
 [Hayes commands][2])
 
+A "normal" use-case for a Windows user would therefore look like this:
+
+1. The surf-stick is attached to the computer. It identifies itself as a mass-
+storage device and Windows treats it like a CD.
+![Screenshot of the Windows Explorer showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/mass-storage-device-explorer.PNG?raw=true)
+From the perspective of the device manager this device looks like this:
+![Screenshot of the Device Manager showing the "CD"](https://github.com/mmaeusezahl/python-windows-surfstick-guide/blob/master/screenshots/mass-storage-device-device-manager.PNG?raw=true)
+2. The user runs the `AutoRun.exe` and two things get installed:
+   1. A tool called `mbbService`, which will look for the mass-storage device by
+   means of its vid and pid
+   2. The driver for the "high-speed" mode
+
 ## References
 This is simply a collection of all references for better display on the GITHub
 page.
