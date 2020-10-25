@@ -1,4 +1,4 @@
-# How to use a Huawei surfstick under Windows with python to send and receive SMS
+# How to use a Huawei surfstick in modem mode under Windows to send and receive SMS (with python)
 
 ## Scope of this guide
 
@@ -67,7 +67,28 @@ seems to be a project which does exactly this though
 
 It is however well known, that there is the other "modem mode" which provides an
 easy to use interface for sending SMS. There are also some python libraries
-which directly target this mode (see python-gsmmodem-new and )
+which directly target this mode (see [python-gsmmodem-new][4] and [pyhumod][5]).
+To me this seems to have the following advantages:
+
+* More direct approach; less vulnearble to mistakes in the implementation
+* Translates well to other modems of similar kind (even if the HTML changes)
+* I don't want or need a mobile data connection
+* I like to emply FOSS as far as possible (it seems more future-proof)
+
+There is
+
+The main remaining challenges for this guide are therefore mainly:
+* Mode-switching the surfstick under Windows, ideally without using the
+proprietary Huawei software
+
+## Doing the mode switch using python
+
+There is a similar guide [here][6], which I couldn't get working.
+
+## Final thoughs
+
+If someone ever feels like porting the "options" Linux driver to Windows it
+would make the whole thing using FOSS.
 
 ## Some hints and troubleshooting
 
@@ -111,7 +132,13 @@ page.
 1. [https://wiki.ubuntuusers.de/USB_ModeSwitch/][1]
 2. [https://en.wikipedia.org/wiki/Hayes_command_set][2]
 3. [https://github.com/pablo/huawei-modem-python-api-client][3]
+4. [https://github.com/babca/python-gsmmodem][4]
+5. [https://github.com/oozie/pyhumod][5]
+6. [https://zedt.eu/tech/hardware/switch-huawei-e3131-hilink-modem-mode/][6]
 
 [1]: https://wiki.ubuntuusers.de/USB_ModeSwitch/
 [2]: https://en.wikipedia.org/wiki/Hayes_command_set
 [3]: https://github.com/pablo/huawei-modem-python-api-client
+[4]: https://github.com/babca/python-gsmmodem
+[5]: https://github.com/oozie/pyhumod
+[6]: https://zedt.eu/tech/hardware/switch-huawei-e3131-hilink-modem-mode/
