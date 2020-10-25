@@ -45,7 +45,43 @@ These are the values that the operating system uses to determine which drivers t
    means of its vid and pid
    2. The driver for the "high-speed" mode
 3. Now a bit of magic happens. The freshly installed `mbbService` will identify
-the attached surfstick in "mass-storage" mode. 
+the attached surfstick in "mass-storage" mode. It will the send a "magic"
+message to the surfstick which will immediately trigger 
+
+## Some hints and troubleshooting
+
+* Make sure the SIM card is inserted the correct way... Seriously, this cost me
+multiple hours of debugging. There is a small engraving in the surfstick showing
+the orientation.
+* Use a USB 2.0 port with no in-between USB switches.
+* If you are using this the first time, I'd recommend to use the full driver
+installation first (maybe in a virtual machine) and see if your stick e.g. has
+a SIM lock. This will save you hours of work.
+* Linux will load the option driver to provide the serial ports on 
+´/dev/ttyUSB0´ to 
+* If you are using VirtualBox with USB passthrough (e.g. to test under Linux)
+  * Use the "USB 2.0 (OHCI, EHCI)" mode from the extension pack. Neither
+  * Make plenty use of the `lsusb` and `usb-device` commands to see, which VID
+  and PID are currently loaded.
+* If you want to uninstall the driver and `mbbService` once installed do the
+following:
+  1. Run the uninstaller from `C:\Program Files (x86)\MobileBrServ` or 
+  `C:\Program Files (x86)\mbbService` (or similar)
+  2. Uninstall the various Huawei devices from the device manager. You can 
+  easily find all of them if susing View->Device by container. There should be 
+  a category called "Huawei Mobile" which lists the various described modes as 
+  explained in this guide. Usually you can just uninstall all of them.
+  3. It should not be necessary to restart Windows. If done correctly, the next
+  time you attach the srufstick, it will be in "mass-storage" mode again.
+* If the stick is in "mass-storage" mode, but no files show up in the explorer?
+This could happen after using Zadig or installing the official drivers.
+  * There are actually two drivers to choose from
+  * Go to the device manager
+  * Right click the mass-storage device which is your Huawei surfstick
+  * Select "Update driver"
+  * Select "Browser my computer for files"
+  * Select "Let me pick from a list of installed drivers on this computer"
+  * Usually there will be two drivers. One of them works ;)
 
 ## References
 This is simply a collection of all references for better display on the GITHub
