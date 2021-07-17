@@ -189,6 +189,11 @@ seems to be an installer, which I did not use.
 
 ### Using the driver
 
+You can now directly install one of the appropriate drivers from the `common\Driver`
+directory in the device manager. It might be necessary to change the configuration
+files with the PID and VID of your specific device.
+(TODO: How to find the correct driver for the device?).
+
 The final state according to the device manager can be seen in the following
 screenshot:
 
