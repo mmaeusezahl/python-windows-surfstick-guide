@@ -170,10 +170,13 @@ the Huawei Download page or through the page search ([direct link][14]). After
 downloading **unpack**  the `*.rar` file, then unpack the `*.zip` file inside.
 
 Inside the zip file you'll find a `Setup.exe` and a `data.bin`. **Don't install
-it unless you really want the UTPS software** (which you probably
+it unless you really want the whole UTPS software** (which you probably
 shouldn't because it [used to have severy security issues](https://www.cvedetails.com/cve/CVE-2014-8358/) 
 and is not actively maintained to my knowledge)! **For this guide we'll just
-install the drivers out of the whole software package.**
+install the drivers out of the whole software package.** (Side note: I
+don't know about any security issues with the drivers themselves
+as they are also rather old too, but at least there are no publicly known
+vulnerabilities.)
 
 Therefore extract the `data.bin` and find the 
 
