@@ -215,7 +215,7 @@ send SMS etc.
 
 (TODO: add actual example code)
 
-For now I had sucess using the commands as shown in step 5 of ![this guide](https://www.instructables.com/Giving-the-Raspberry-Pi-a-Serial-Modem-Using-the-H/).
+For now I had sucess using the commands as shown in step 5 of [this guide](https://www.instructables.com/Giving-the-Raspberry-Pi-a-Serial-Modem-Using-the-H/).
 
 The only thing you'll have to adapt is to replace the `ttyUSB` port in the line
 ```python
