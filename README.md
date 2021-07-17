@@ -171,8 +171,8 @@ downloading **unpack**  the `*.rar` file, then unpack the `*.zip` file inside.
 
 Inside the zip file you'll find a `Setup.exe` and a `data.bin`. **Don't install
 it unless you really want the UTPS software** (which you probably
-shouldn't because it used to have severy security issues and is not actively
-maintained to my knowledge)!
+shouldn't because it [used to have severy security issues](https://www.cvedetails.com/cve/CVE-2014-8358/) 
+and is not actively maintained to my knowledge)!
 
 Now extract the `data.bin` and find the 
 
