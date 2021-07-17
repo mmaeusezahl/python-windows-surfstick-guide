@@ -160,8 +160,7 @@ In my case the device ends up as a 12d1:1001
 
 ## Loading the correct driver
 
-The current state is:
-TODO
+(TODO: document current state of the installation process for the user)
 
 ### Downloading the driver
 
@@ -171,7 +170,9 @@ the Huawei Download page or through the page search ([direct link][14]). After
 downloading **unpack**  the `*.rar` file, then unpack the `*.zip` file inside.
 
 Inside the zip file you'll find a `Setup.exe` and a `data.bin`. **Don't install
-it unless you really want the UTPS software** which you shouldn't because it has a security problem)!
+it unless you really want the UTPS software** (which you probably
+shouldn't because it used to have severy security issues and is not actively
+maintained to my knowledge)!
 
 Now extract the `data.bin` and find the 
 
@@ -203,7 +204,19 @@ send SMS etc.
 
 ## Sending and receiving SMS
 
-TODO
+(TODO: add actual example code)
+
+For now I had sucess using the commands as shown in step 5 of ![this guide](https://www.instructables.com/Giving-the-Raspberry-Pi-a-Serial-Modem-Using-the-H/).
+
+The only thing you'll have to adapt is to replace the `ttyUSB` port in the line
+```python
+ser = serial.Serial('/dev/ttyUSB0', 460800, timeout=1)
+```
+
+with the Windows COM Port, i.e. in the example above 'COM8' like this
+```python
+ser = serial.Serial('COM8', 460800, timeout=1)
+```
 
 ## Final thoughs
 
